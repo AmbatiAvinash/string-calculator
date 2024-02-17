@@ -3,8 +3,10 @@ import "./App.css";
 
 function App() {
   const [sum, setSum] = useState([]);
+  //add inputs below
   const inputs = ["", "1,2,3", "1\n2,3", "//;\n1;2;3", "//;\n1;2;3;4;5"];
 
+  //clicking on add button will display the respective outputs
   const addNumbers = () => {
     let outputs = inputs.map((input) => {
       if (input === "") return 0;
@@ -63,8 +65,10 @@ function App() {
   return (
     <div className="App">
       <header className="App-header">String Calculator</header>
-      <button onClick={addNumbers}>Add</button>
-      <h4>
+      <button data-testid="add-nums" name="add" onClick={addNumbers}>
+        Add
+      </button>
+      <h4 data-testid="output">
         Output:{" "}
         {sum?.map((s, index) => (
           <p key={index}>{s}</p>
